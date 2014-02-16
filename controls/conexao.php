@@ -5,10 +5,10 @@
 	 * 
 	 */
 
-	$servidor = "localhost"; // Endereco do banco
-	$usuario_banco = "root"; // Usuario do banco
-	$senha_banco = "123456"; // Senha do usuario do banco
-	$nome_banco = "utd"; //Nome do banco de dados
+	$servidor = ""; // Endereco do banco
+	$usuario_banco = ""; // Usuario do banco
+	$senha_banco = ""; // Senha do usuario do banco
+	$nome_banco = ""; //Nome do banco de dados
 	
 	//Conectando com o SGBD
 	$con = mysql_connect($servidor, $usuario_banco, $senha_banco) or die(mysql_error());

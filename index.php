@@ -21,5 +21,5 @@
 	 * fim da pagina
 	 */
 	//arquivo de layout.
-	include_once 'views/template.html';
+	include_once 'views/template.php';
 ?>
