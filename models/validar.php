@@ -7,61 +7,61 @@
 		endif;
 		switch ($_GET['option']):
 			case 'add_pessoas':
-					include_once ($raiz_dir.'/views/add_pessoas.html');
+					include_once ($raiz_dir.'/views/add_pessoas.php');
 			break;
 			case 'add_alunos':
 				$busca = selecionar("tb_pessoas", NULL, NULL);
 					if($busca === false):
 						$alert_class = "warning";
-						$alert_texto = "Não existe pessoas cadastrada! <a href=\"http://localhost/workspace/utd/?option=add_pessoas\" title=\"Clique aqui para add pessoas\" >ADD Pessoa</a>";
-						include_once ($raiz_dir.'/views/alerts.html');
+						$alert_texto = "Não existe pessoas cadastrada! <a href=\"$link_projeto/?option=add_pessoas\" title=\"Clique aqui para adicionar pessoas\" >ADD Pessoa</a>";
+						include_once ($raiz_dir.'/views/alerts.php');
 						break;
 					endif;
-				include_once ($raiz_dir.'/views/add_alunos.html');
+				include_once ($raiz_dir.'/views/add_alunos.php');
 			break;
 			case 'add_instrutores':
 				$busca = selecionar("tb_pessoas", NULL, NULL);
 					if($busca === false):
 						$alert_class = "warning";
-						$alert_texto = "Não existe pessoas cadastrada! <a href=\"http://localhost/workspace/utd/?option=add_pessoas\" title=\"Clique aqui para add pessoas\" >ADD Pessoa</a>";
-						include_once ($raiz_dir.'/views/alerts.html');
+						$alert_texto = "Não existe pessoas cadastrada! <a href=\"$link_projeto/?option=add_pessoas\" title=\"Clique aqui para adicionar pessoas\" >ADD Pessoa</a>";
+						include_once ($raiz_dir.'/views/alerts.php');
 						break;
 					endif;
-				include_once ($raiz_dir.'/views/add_instrutores.html');
+				include_once ($raiz_dir.'/views/add_instrutores.php');
 			break;
 			case 'add_monitores':
 				$busca = selecionar("tb_pessoas", NULL, NULL);
 					if($busca === false):
 						$alert_class = "warning";
-						$alert_texto = "Não existe pessoas cadastrada! <a href=\"http://localhost/workspace/utd/?option=add_pessoas\" title=\"Clique aqui para add pessoas\" >ADD Pessoas</a>";
-						include_once ($raiz_dir.'/views/alerts.html');
+						$alert_texto = "Não existe pessoas cadastrada! <a href=\"$link_projeto/?option=add_pessoas\" title=\"Clique aqui para adicionar pessoas\" >ADD Pessoas</a>";
+						include_once ($raiz_dir.'/views/alerts.php');
 						break;
 					endif;
-				include_once ($raiz_dir.'/views/add_monitores.html');
+				include_once ($raiz_dir.'/views/add_monitores.php');
 			break;
 			case 'add_laboratorios':
-				include_once ($raiz_dir.'/views/add_laboratorios.html');
+				include_once ($raiz_dir.'/views/add_laboratorios.php');
 			break;
 			case 'add_lotacaes':
 				$busca_laboratorios = selecionar("tb_laboratorios", NULL, NULL);
 				if($busca_laboratorios === false):
 					$alert_class = "warning";
-					$alert_texto = "Não existe laboratorios cadastrados! <a href=\"http://localhost/workspace/utd/?option=add_laboratorios\" title=\"Clique aqui para add laboratorios\" >ADD laboratorios</a>";
-					include_once ($raiz_dir.'/views/alerts.html');
+					$alert_texto = "Não existe laboratorios cadastrados! <a href=\"$link_projeto/?option=add_laboratorios\" title=\"Clique aqui para adicionar laboratorios\" >ADD laboratorios</a>";
+					include_once ($raiz_dir.'/views/alerts.php');
 					break;
 				endif;
 				$busca_cursos = selecionar("tb_cursos", NULL, NULL);
 				if($busca_cursos === false):
 					$alert_class = "warning";
-					$alert_texto = "Não existe Cursos cadastrados! <a href=\"http://localhost/workspace/utd/?option=add_cursos\" title=\"Clique aqui para add pessoas\" >ADD Cursos</a>";
-					include_once ($raiz_dir.'/views/alerts.html');
+					$alert_texto = "Não existe Cursos cadastrados! <a href=\"$link_projeto/?option=add_cursos\" title=\"Clique aqui para adicionar pessoas\" >ADD Cursos</a>";
+					include_once ($raiz_dir.'/views/alerts.php');
 					break;
 				endif;
 				$busca_instrutores = selecionar("tb_instrutores", NULL, NULL);
 				if($busca_instrutores === false):
 					$alert_class = "warning";
-					$alert_texto = "Não existe instrutores cadastrados! <a href=\"http://localhost/workspace/utd/?option=add_instrutores\" title=\"Clique aqui para add pessoas\" >ADD Instrutores</a>";
-					include_once ($raiz_dir.'/views/alerts.html');
+					$alert_texto = "Não existe instrutores cadastrados! <a href=\"$link_projeto/?option=add_instrutores\" title=\"Clique aqui para adicionar pessoas\" >ADD Instrutores</a>";
+					include_once ($raiz_dir.'/views/alerts.php');
 					break;
 				endif;
 				foreach ($busca_instrutores as $inst_casa=>$instrutor):
@@ -71,18 +71,18 @@
 				$busca_monitores = selecionar("tb_monitores", NULL, NULL);
 				if($busca_monitores === false):
 					$alert_class = "warning";
-					$alert_texto = "Não existe monitores cadastrados! <a href=\"http://localhost/workspace/utd/?option=add_monitores\" title=\"Clique aqui para add pessoas\" >ADD Monitores</a>";
-					include_once ($raiz_dir.'/views/alerts.html');
+					$alert_texto = "Não existe monitores cadastrados! <a href=\"$link_projeto/?option=add_monitores\" title=\"Clique aqui para adicionar pessoas\" >ADD Monitores</a>";
+					include_once ($raiz_dir.'/views/alerts.php');
 					break;
 				endif;
 				foreach ($busca_monitores as $inst_casa=>$monitor):
 					$busca_pessoa = selecionar("tb_pessoas", "id_pessoas", $monitor['pessoa_id']);
 					$busca_monitores[$inst_casa]['monitor_nome'] = $busca_pessoa[0]['pessoa_nome'];
 				endforeach;
-				include_once ($raiz_dir.'/views/add_lotacaes.html');
+				include_once ($raiz_dir.'/views/add_lotacaes.php');
 				break;
 			case 'add_cursos':
-				include_once ($raiz_dir.'/views/add_cursos.html');
+				include_once ($raiz_dir.'/views/add_cursos.php');
 			break;
 		endswitch;
 	}
@@ -96,8 +96,8 @@
 				$dados = selecionar("tb_pessoas", NULL, NULL);
 				if($dados === false):
 					$alert_class = "warning";
-					$alert_texto = "Não existe pessoas cadastrada! <a href=\"http://localhost/workspace/utd/?option=add_pessoas\" title=\"Clique aqui para add pessoas\" >ADD Pessoa</a>";
-					include_once ($raiz_dir.'/views/alerts.html');
+					$alert_texto = "Não existe pessoas cadastrada! <a href=\"$link_projeto/?option=add_pessoas\" title=\"Clique aqui para adicionar pessoas\" >ADD Pessoa</a>";
+					include_once ($raiz_dir.'/views/alerts.php');
 					break;
 				endif;
 				$titulos['id_pessoas'] = "ID";
@@ -105,14 +105,14 @@
 				$titulos['pessoa_email'] = "Email";
 				$titulos['pessoa_nasc'] = "Nascimento";
 				$titulos['pessoa_sexo'] = "Sexo";
-				include_once ($raiz_dir.'/views/liste.html');
+				include_once ($raiz_dir.'/views/liste.php');
 				break;
 			case 'liste_alunos':
 				$dados = selecionar("tb_alunos", NULL, NULL);
 				if($dados === false):
 				$alert_class = "warning";
-				$alert_texto = "Não existe pessoas cadastrada! <a href=\"http://localhost/workspace/utd/?option=add_pessoas\" title=\"Clique aqui para add pessoas\" >ADD Pessoa</a>";
-				include_once ($raiz_dir.'/views/alerts.html');
+				$alert_texto = "Não existe pessoas cadastrada! <a href=\"$link_projeto/?option=add_alunos\" title=\"Clique aqui para adicionar alunos\" >ADD Alunos</a>";
+				include_once ($raiz_dir.'/views/alerts.php');
 				break;
 				endif;
 				
@@ -131,10 +131,21 @@
 				$titulos['aluno_nome'] = "Nome";
 				$titulos['aluno_email'] = "Email";
 				$titulos['aluno_status'] = "Status";
-				include_once ($raiz_dir.'/views/liste.html');
+				include_once ($raiz_dir.'/views/liste.php');
 				break;
 				endswitch;
+				
+				/**
+				 * Ainda fauta adicionar os emia campos
+				 */
+				
+				
+				
+				
 	}// FIM da lista menu
+	
+	
+	
 	function valida_resultado(){
 		global $raiz_dir, $link_projeto;
 		if(isset($_GET['resultado']) != true):
@@ -144,12 +155,12 @@
 		case 'inserir_sucesso':
 			$alert_class = "success";
 			$alert_texto = "Inserido com sucesso";
-			include_once ($raiz_dir.'/views/alerts.html');
+			include_once ($raiz_dir.'/views/alerts.php');
 			break;
 		case 'inserir_error':
 			$alert_class = "danger";
 			$alert_texto = "Error ao inserir";
-			include_once ($raiz_dir.'/views/alerts.html');
+			include_once ($raiz_dir.'/views/alerts.php');
 			break;
 		endswitch;
 	}
