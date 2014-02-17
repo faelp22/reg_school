@@ -6,6 +6,9 @@
 			return false;
 		endif;
 		switch ($_GET['option']):
+			case 'login':
+					include_once ($raiz_dir.'/views/login.php');
+			break;
 			case 'add_pessoas':
 					include_once ($raiz_dir.'/views/add_pessoas.php');
 			break;
