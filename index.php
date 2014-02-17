@@ -13,9 +13,11 @@
 	
 	function conteudo(){
 		global $raiz_dir, $link_projeto;
+		echo "<h3>Sistema em construção</h3>";
 		valida_resultado();
 		valida_menu();
 		lista_menu();
+		
 	}
 	/**
 	 * fim da pagina

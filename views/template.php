@@ -8,11 +8,10 @@
 		
 	</head>
 	<body>
-		<?php include_once($raiz_dir."/views/menu.php"); ?>
+		<?php include_once($raiz_dir."/views/menu_index.php"); ?>
 		<div style="width: 75%;
 					float: center;
-					margin-left: auto;
-					margin-right: auto;">
+					margin: 0 auto;">
 		
 		<?php
 		
