@@ -1,7 +1,7 @@
 <?php
 	// esté arquivo é responsavel por receber e tratar os dados
-	include_once 'urls.php';
-	include_once ($raiz_dir.'/controls/gerenciador.php');
+	require_once 'urls.php';
+	require_once ($raiz_dir.'/controls/gerenciador.php');
 	$dados = $_POST;
 	
 	//recebendo o nome da tabela

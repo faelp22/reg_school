@@ -3,13 +3,13 @@
 	 * Inicio da pagina
 	 */
 	//arquivo de configuração do sistema.
-	include_once 'models/urls.php';
+	require_once 'models/urls.php';
 	/**
 	 * Conteudo do site
 	 */
 	//Validar as urls
-	include_once 'models/validar.php';
-	include_once 'controls/gerenciador.php';
+	require_once 'models/validar.php';
+	require_once 'controls/gerenciador.php';
 	
 	function conteudo(){
 		global $raiz_dir, $link_projeto;
@@ -23,5 +23,5 @@
 	 * fim da pagina
 	 */
 	//arquivo de layout.
-	include_once 'views/template.php';
+	require_once 'views/template.php';
 ?>
