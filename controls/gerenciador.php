@@ -71,38 +71,25 @@
 		endif;
 	}//FIM selecionar
 	
-	function atualizar($tabela_nome, $cond_campo, $cond_valor){
+	function editar($tabela_nome, $novos_dados, $cond_campo, $cond_valor){
 		global $con;
-		// UPDATE `tb_pessoas` SET `pessoa_nome`='isael sousa santos',`pessoa_email`='isael@hotmail.com',`pessoa_nasc`='1990/03/03' WHERE `id_pessoas`='2'
-		// incluindo query
-		$query = "UPDATE `$tabela_nome` ";
+		// iniciando SQL query
+		$query = "UPDATE `$tabela_nome` SET ";
 		
 		// segunda parte da query, reconhecimento dos campos
-		
-		$query .="SET ";
+
 		$rodada = 1;
-			foreach ($tabela_dados as $campo=>$valor):
+			foreach ($novos_dados as $campo=>$valor):
 				if($rodada > 1):
 					$query .= ", ";
 				endif;
-				$query .= "`$campo`";
+				$query .= "`$campo`='$valor'";
 				$rodada++;
 			endforeach;
-		$query .=" ";
 		
 		// terceira parte da query,
 		
-		$query .= " WHERE $cond_campo = ";
-				
-		$rodada = 1;
-			foreach ($tabela_dados as $campo=>$valor):
-				if($rodada > 1):
-					$query .= ", ";
-				endif;
-				$query .= "'$valor'";
-				$rodada++;
-			endforeach;
-		$query .=";";
+		$query .= " WHERE `$cond_campo` = '$cond_valor'";
 		
 		$resultado = mysql_query($query, $con) or die(mysql_error());
 		
